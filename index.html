@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Campo Cercano y Lejano</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <h1>Calculadora de Campo Cercano y Lejano</h1>
+
+    <div class="calculator-container">
+        <h2>Introduzca los valores y seleccione la unidad</h2>
+        <form id="fieldForm">
+            <div class="input-group">
+                <label for="antennaDiameter">Diámetro de la Antena:</label>
+                <div class="input-container">
+                    <input type="number" id="antennaDiameter" name="antennaDiameter" step="any">
+                    <select id="antennaDiameterUnit">
+                        <option value="1">Metros</option>
+                        <option value="1000">Kilómetros</option>
+                        <option value="0.01">Centímetros</option>
+                        <option value="0.001">Milímetros</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="antennaDimension">Dimensión de la antena:</label>
+                <div class="input-container">
+                    <input type="number" id="antennaDimension" name="antennaDimension" step="any">
+                    <select id="antennaDimensionUnit">
+                        <option value="1">Metros</option>
+                        <option value="1000">Kilómetros</option>
+                        <option value="0.01">Centímetros</option>
+                        <option value="0.001">Milímetros</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="wavelength">Longitud de onda:</label>
+                <div class="input-container">
+                    <input type="number" id="wavelength" name="wavelength" step="any">
+                    <select id="wavelengthUnit">
+                        <option value="1">Metros</option>
+                        <option value="1000">Kilómetros</option>
+                        <option value="0.01">Centímetros</option>
+                        <option value="0.001">Milímetros</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button type="button" class="calculate-button" onclick="calculateFields()">Calcular</button>
+                <button type="button" class="reset-button" onclick="resetFields()" title="Borrar Todo">
+                    <i class="fas fa-trash"></i>
+                </button>
+            </div>
+        </form>
+        <div id="result-container">
+            <p id="result"></p>
+            <i class="fas fa-copy" id="copyIcon" title="Copiar resultado" onclick="copyToClipboard(result.innerText)"></i>
+        </div>
+        <table id="conversionTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Unidad</th>
+                    <th>Campo Lejano</th>
+                    <th>Campo Cercano</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
